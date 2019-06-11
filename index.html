@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>The Ridesharing Game</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js"
+        integrity="sha256-V9GWip6STrPGZ47Fl52caWO8LhKidMGdFvZbjFUlRFs=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <div id='map'></div>
+    <div id="dashboard"
+        style="position: absolute; background-color: gray; width: 120px; border-radius: 0px 0px 25px; border-color: transparent; visibility: hidden;">
+        <p id="totalMoney" class="white-text" style="text-align: center;"></p>
+        <a href="javascript:toggleNewDriverList(true);" class="inline">
+            <p id="driveBtn" class="white-text" style="text-align: center;">New Drivers<span id="newDriver"
+                    class="new badge white-text">0</span>
+            </p>
+        </a>
+    </div>
+    <div class="startMenu">
+        <div class="modal-content" style="width: 30%;">
+            <div style="overflow: scroll; height: 400px; text-align: center;" id="popupContainer">
+                <h1>The Ridesharing Game</h1>
+                <a id="startBTN" href="javascript:startGame();"
+                    class="btn-floating btn-large waves-effect waves-light red disabled"><i
+                        class="material-icons">play_arrow</i></a>
+                <p>v1.0</p>
+            </div>
+        </div>
+    </div>
+    <div class="driverList">
+        <div class="modal-content" style="width: 75%;">
+            <span class="driverList-close-button">&times;</span>
+            <div style="overflow: scroll; height: 400px;" id="popupContainer">
+                <table class="centered highlight striped">
+                    <thead>
+                        <tr>
+                            <th>Driver Type</th>
+                            <th>Rate</th>
+                            <th>Route Cost</th>
+                            <th>Distance to Customer*</th>
+                            <th>Choose Driver</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="driveTableList">
+                    </tbody>
+                </table>
+                <p><i>*Distances may not be accurate</i></p>
+            </div>
+        </div>
+    </div>
+    <div class="newDriverList">
+        <div class="modal-content" style="width: 75%;">
+            <span class="newDriverList-close-button">&times;</span>
+            <div style="overflow: scroll; height: 400px;" id="popupContainer">
+                <table class="centered highlight striped">
+                    <thead>
+                        <tr>
+                            <th>Driver Type</th>
+                            <th>Car</th>
+                            <th>Ask Rate</th>
+                            <th>Signup Bonus</th>
+                            <th>Choose Driver</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="newDriveTableList">
+                        <tr>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="aes.js"></script>
+    <script src="prep.js"></script>
+    <script src="Cars.js"></script>
+    <script src="points.js"></script>
+    <script src="Driver.js"></script>
+    <script src="Customer.js"></script>
+    <script src="gamePlay.js"></script>
+
+</body>
+
+</html>
