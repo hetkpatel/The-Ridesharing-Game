@@ -37,7 +37,7 @@ function createNewDriver(driverType, car, startPoint, signupPrice) {
             yearModel = parseInt(randomCar[Cars.START_YEAR].toString().substr(0, 2) + randomCar[Cars.END_YEAR].toString());
         else
             yearModel = getRandomInt(randomCar[Cars.START_YEAR], randomCar[Cars.END_YEAR]);
-    setTimeout(createNewDriver, 5000 * (Math.pow(drivers.size, 2)), Cars.DRIVER_TYPE[getRandomInt(0, 3)], `${yearModel} ${randomCar[Cars.NAME]}`, points[0], (yearModel - Cars.OLDEST_YEAR + 10) * 10);
+    setTimeout(createNewDriver, 5000 * (Math.pow(drivers.size, 2)), Cars.DRIVER_TYPE[getRandomInt(0, 3)], `${yearModel} ${randomCar[Cars.NAME]}`, points[getRandomInt(0, points.length)], (yearModel - Cars.OLDEST_YEAR + 10) * 10);
 }
 
 function createNewCustomer(origin, destination) {
@@ -47,7 +47,6 @@ function createNewCustomer(origin, destination) {
                 var customerUUID = uuidv4();
                 customers.set(customerUUID, new Customer(customerUUID, origin, destination, data));
             }
-            console.log(10000 * (Math.pow(customers.size, 2)));
             setTimeout(createNewCustomer, 10000 * (Math.pow(customers.size, 2)), getRandomLatLng(NewYorkBounds), getRandomLatLng(NewYorkBounds));
         });
 }

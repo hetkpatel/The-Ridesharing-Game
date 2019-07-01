@@ -1,7 +1,6 @@
 let NewYorkBounds = mapboxgl.LngLatBounds.convert([[-74.257159, 40.495992], [-73.699215, 40.915568]]);
 
 var moneyAmount = 0.0;
-var bookingFee = 1000.00;
 
 var drivers = new Map();
 var customers = new Map();

@@ -199,7 +199,7 @@ var anim = {
             } else {
                 context.state = Driver.IDLE;
                 context.hasCustomer = false;
-                updateMoneyAmount(bookingFee);
+                updateMoneyAmount((context.rate * (customer.routeData.routes[0].distance / 1609.344))*2);
                 customers.delete(customer.uuid);
             }
         }

@@ -15,7 +15,7 @@ class Customer {
             .setPopup(new mapboxgl.Popup({ offset: 25 })
                 .setHTML(`
                         <div>
-                            <h6>Name: ${routeData.waypoints[0].name === "" ? "Pickup Spot" : routeData.waypoints[0].name}</h6>
+                            <h6>${routeData.waypoints[0].name === "" ? "Pickup Spot" : routeData.waypoints[0].name}</h6>
                         </div>
                         <div>
                             <p>Trip Distance: ${(routeData.routes[0].distance / 1609.344).toFixed(3)}mi</p>
